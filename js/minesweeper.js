@@ -321,7 +321,7 @@ const showAllMines = () => {
                 tile.classList.add("mine");
             }
 
-            tile.setAttribute("data-isrevealed", "true");
+            // tile.setAttribute("data-isrevealed", "true");
         }
     }
     gameOver = true;
@@ -389,15 +389,19 @@ const checkForWin = () => {
             }
         }
     }
-    if (!gameLost) {
-        gameWon = true;
-    }
+
+    gameWon = true;
+    document.getElementById("smiley").classList.add("face_win");
+
     gameOver = true;
 };
 
 // this method will change the face of smiley to winner with sunglasses
 const setWinner = () => {
-    if (gameWon) document.getElementById("smiley").classList.add("face_win");
+    if (gameWon) {
+        document.getElementById("smiley").classList.add("face_win");
+        console.log("Game Won");
+    }
 };
 
 // This method will do recursion to reveal all of the adjacent tiles that have not adjacent bomb
